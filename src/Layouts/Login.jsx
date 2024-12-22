@@ -1,10 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Authentication/AuthContext";
 
 
 const Login = () => {
+
+  const {loginUser} = useContext(AuthContext) ;
+  const navigate = useNavigate() ;
 
 const handleLogin = e => {
     e.preventDefault() ;
@@ -14,7 +19,15 @@ const handleLogin = e => {
     console.log(email, pass);
 
     // login user 
+    loginUser(email, pass)
+    .then(res => {
+      console.log(res.user);
+      navigate('/') ;
+    })
+    .catch(er => {
+      console.log(er);
 
+    })
 
 }
 

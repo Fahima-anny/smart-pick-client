@@ -1,9 +1,82 @@
+import { useContext } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { MdLogin } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Authentication/AuthContext";
 
 
 const SignUp = () => {
+
+    const {signUp,updateUserInfo} = useContext(AuthContext) ;
+    const navigate = useNavigate() ;
+
+    const handleSignUp = e => {
+        e.preventDefault() ;
+        const form = e.target ;
+        const email = form.email.value ;
+        const pass = form.pass.value ;
+        const name = form.name.value ;
+        const photo = form.photo.value ;
+        console.log(email, pass, name, photo);
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+if(!regex.test(pass)){
+    alert("Your Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 6 characters")
+ return
+}
+
+        // create user 
+        signUp(email, pass)
+        .then(res => {
+            console.log(res.user);
+            updateUserInfo({displayName: name, photoURL: photo})
+            .then(() => {
+                console.log("user info updated");
+                navigate('/') ;
+            })
+            .catch(er => console.log(er))
+        })
+        .catch(Er => console.log(Er))
+    
+    }
+
     return (
-        <div>
-            sign up
+        <div className="py-16 flex justify-center items-center">
+        <div className="card py-5 bg-base-100 w-full max-w-lg mx-auto shadow-xl shadow-base-300">
+        <a className=" text-center font-bold text-3xl font-serif">Smart<span className="text-blue-400">Pick</span></a>
+            <h2 className="text-gray-400 text-center mt-2">Create a new account</h2>
+           <form onSubmit={handleSignUp} className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input type="url" placeholder="photo URL" name="photo" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input type="password" placeholder="password" name="pass" className="input input-bordered" required />
+        </div>
+        <div className="form-control mt-6">
+          <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 "><MdLogin className="text-2xl" />Sign Up</button>
+          <div className="divider">or</div>
+          <button className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
+        </div>
+        <p className="text-center">Already have an account? <Link to='/login' className="text-blue-400 font-bold underline hover:text-black duration-500">Login</Link></p>
+      </form>
+           </div>
         </div>
     );
 };
