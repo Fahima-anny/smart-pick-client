@@ -17,9 +17,9 @@ const links = <>
     <li><NavLink to='/queries'>Queries</NavLink></li>
    {
     user && <>
-     <li><NavLink to='/queries'>My Queries</NavLink></li>
-    <li><NavLink to='/queries'>Recommendation For Me</NavLink></li>
-    <li><NavLink to='/queries'>My Recommendations</NavLink></li>
+     <li><NavLink to='/myQueries'>My Queries</NavLink></li>
+    <li><NavLink to='/recommendationForMe'>Recommendation For Me</NavLink></li>
+    <li><NavLink to='/myRecommendation'>My Recommendations</NavLink></li>
     </>
    }
             {/* <li><NavLink to='/'></NavLink></li> */}
@@ -35,7 +35,7 @@ const handleLogout = () => {
 }
 
     return (
-        <div>
+        <>
             <div className="bg-blue-400 text-white ">
 <div className="navbar py-0 max-w-7xl mx-auto">
         <div className="navbar-start ">
@@ -131,8 +131,9 @@ const handleLogout = () => {
       </div>
       </div>
 
-      <div className="navbar max-w-7xl mx-auto px-0">
-        <div className="navbar-start">
+      <div className="   sticky top-0 z-10 bg-base-100 shadow-md shadow-base-300">
+     <div className="navbar px-0 max-w-7xl mx-auto">
+     <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -161,12 +162,13 @@ const handleLogout = () => {
             {links}
           </ul>
         </div>
+     </div>
         {/* <div className="navbar-end">
           <a className="btn">Button</a>
         </div> */}
       </div>
 
-        </div>
+        </>
     );
 };
 

@@ -3,7 +3,7 @@ import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="bg-base-200 p-5 md:p-0">
+        <div className="bg-base-200 py-5 md:p-0">
             <footer className="md:footer text-base-content p-10 max-w-7xl mx-auto px-0">
   <nav className="flex flex-col justify-center items-center">
     <h6 className="footer-title">Services</h6>
@@ -39,7 +39,7 @@ const Footer = () => {
         <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 join-item">Subscribe</button>
       </div>
     </fieldset> */}
-    <p className="max-w-sm leading-7 md:my-0 my-2">Discover, review, and buy products you trust with honest community insights.</p>
+    <p className="max-w-sm leading-7 md:my-0 my-2 px-3">Discover, review, and buy products you trust with honest community insights.</p>
     {/* <p>Join us now on social platforms</p> */}
     <div className="grid grid-flow-col gap-4">
       <a href="https://x.com/">
@@ -79,7 +79,7 @@ const Footer = () => {
     </div>
   </form>
 </footer>
-<div className="footer footer-center bg-base-100 py-5 font-semibold ">
+<div className="footer footer-center bg-base-100 py-5 font-semibold px-3">
   <aside>
     <p>Copyright © {new Date().getFullYear()} - All right reserved by SMARTPICK</p>
   </aside>

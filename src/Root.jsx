@@ -5,9 +5,9 @@ import Footer from "./SharedCompo/Footer";
 
 const Root = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <div>
+        <div className="relative">
+           <Navbar></Navbar>
+            <div className="max-w-7xl mx-auto py-10">
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

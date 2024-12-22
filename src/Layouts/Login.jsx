@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
 
@@ -11,6 +11,9 @@ const Login = () => {
 
   const {loginUser, googleLogin, setUserPhoto} = useContext(AuthContext) ;
   const navigate = useNavigate() ;
+  const location = useLocation() ;
+  console.log(location);
+  const destination = location?.state || '/' ;
 
 const handleLogin = e => {
     e.preventDefault() ;
@@ -24,7 +27,7 @@ const handleLogin = e => {
     .then(res => {
       // console.log(res.user);
       toast.success(`Welcome ${res?.user?.displayName}`)
-      navigate('/') ;
+      navigate(destination) ;
     })
     .catch(er => {
       console.log(er);
@@ -39,7 +42,7 @@ const handleGoogleLogin = () => {
     // console.log(res.user.photoURL)
     toast.success(`Welcome ${res.user.displayName}`)
     setUserPhoto(res?.user?.photoURL) ;
-    navigate('/') ;
+    navigate(destination) ;
 })
 .catch(er => {
     console.log(er)

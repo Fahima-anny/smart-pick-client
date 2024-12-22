@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC0-DqTnTCvEhLpog99ohEedQy_tLGd4uE",
-  authDomain: "smartpick-01.firebaseapp.com",
-  projectId: "smartpick-01",
-  storageBucket: "smartpick-01.firebasestorage.app",
-  messagingSenderId: "869982896603",
-  appId: "1:869982896603:web:5f5ab8248d368545a1e7fe"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
