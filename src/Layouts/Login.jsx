@@ -4,11 +4,12 @@ import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthContext";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
 
-  const {loginUser} = useContext(AuthContext) ;
+  const {loginUser, googleLogin, setUserPhoto} = useContext(AuthContext) ;
   const navigate = useNavigate() ;
 
 const handleLogin = e => {
@@ -21,14 +22,28 @@ const handleLogin = e => {
     // login user 
     loginUser(email, pass)
     .then(res => {
-      console.log(res.user);
+      // console.log(res.user);
+      toast.success(`Welcome ${res?.user?.displayName}`)
       navigate('/') ;
     })
     .catch(er => {
       console.log(er);
-
+      toast.error("Wrong Email/Password")
     })
+}
 
+const handleGoogleLogin = () => {
+  googleLogin()
+  .then(res => {
+    // console.log(res.user)
+    // console.log(res.user.photoURL)
+    toast.success(`Welcome ${res.user.displayName}`)
+    setUserPhoto(res?.user?.photoURL) ;
+    navigate('/') ;
+})
+.catch(er => {
+    console.log(er)
+})
 }
 
     return (
@@ -55,7 +70,7 @@ const handleLogin = e => {
         <div className="form-control mt-6">
           <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 "><MdLogin className="text-2xl" />Login</button>
           <div className="divider">or</div>
-          <button className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
+          <button onClick={handleGoogleLogin} className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
         </div>
         <p className="text-center">Don't have an account? <Link to='/signUp' className="text-blue-400 font-bold underline hover:text-black duration-500">Sign Up</Link></p>
       </form>

@@ -3,11 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthContext";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 
 const SignUp = () => {
 
-    const {signUp,updateUserInfo} = useContext(AuthContext) ;
+    const {signUp,updateUserInfo, setUserPhoto, setUserName, googleLogin} = useContext(AuthContext) ;
     const navigate = useNavigate() ;
 
     const handleSignUp = e => {
@@ -20,7 +22,12 @@ const SignUp = () => {
         console.log(email, pass, name, photo);
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 if(!regex.test(pass)){
-    alert("Your Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 6 characters")
+    // toast.error("Your Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 6 characters")
+    Swal.fire({
+        title: "Weak Password",
+        text: "Your Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 6 characters",
+        icon: "error"
+      });
  return
 }
 
@@ -31,13 +38,31 @@ if(!regex.test(pass)){
             updateUserInfo({displayName: name, photoURL: photo})
             .then(() => {
                 console.log("user info updated");
+                setUserName(name)
+                setUserPhoto(photo)
                 navigate('/') ;
+                      toast.success(`Welcome ${res?.user?.displayName}`)
             })
             .catch(er => console.log(er))
         })
         .catch(Er => console.log(Er))
     
     }
+
+    
+const handleGoogleLogin = () => {
+    googleLogin()
+    .then(res => {
+    //   console.log(res.user)
+    //   console.log(res.user.photoURL)
+      setUserPhoto(res?.user?.photoURL)
+      toast.success(`Welcome ${res?.user?.displayName}`)
+      navigate('/') ;
+  })
+  .catch(er => {
+      console.log(er)
+  })
+  }
 
     return (
         <div className="py-16 flex justify-center items-center">
@@ -72,7 +97,7 @@ if(!regex.test(pass)){
         <div className="form-control mt-6">
           <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 "><MdLogin className="text-2xl" />Sign Up</button>
           <div className="divider">or</div>
-          <button className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
+          <button onClick={handleGoogleLogin} className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
         </div>
         <p className="text-center">Already have an account? <Link to='/login' className="text-blue-400 font-bold underline hover:text-black duration-500">Login</Link></p>
       </form>

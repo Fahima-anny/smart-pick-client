@@ -9,6 +9,8 @@ const Navbar = () => {
   
   const {user, userName, userPhoto, signOutUser} = useContext(AuthContext) ;
   const navigate = useNavigate() ;
+  // console.log(user.photoURL);
+  // console.log(userPhoto);
 
 const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
