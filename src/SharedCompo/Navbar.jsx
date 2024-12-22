@@ -131,7 +131,7 @@ const handleLogout = () => {
       </div>
       </div>
 
-      <div className="   sticky top-0 z-10 bg-base-100 shadow-md shadow-base-300">
+      <div className="   sticky top-0 z-10 bg-base-100 ">
      <div className="navbar px-0 max-w-7xl mx-auto">
      <div className="navbar-start">
           <div className="dropdown">
