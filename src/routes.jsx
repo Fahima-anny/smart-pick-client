@@ -6,6 +6,7 @@ import SignUp from "./Layouts/SignUp";
 import ErrorPage from "./Layouts/ErrorPage";
 import Queries from "./Layouts/Queries/Queries";
 import PrivateRoute from "./Authentication/PrivateRoute";
+import AddQuery from "./Layouts/AddQuery";
 
 export const routes = createBrowserRouter([
     {
@@ -27,7 +28,11 @@ element: <SignUp></SignUp>
         },
         {
 path:'/queries',
-element: <PrivateRoute><Queries></Queries></PrivateRoute>
+element: <Queries></Queries>
+        },
+        {
+path:'/addQuery',
+element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
         },
 
       ]
