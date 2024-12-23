@@ -8,6 +8,9 @@ import Queries from "./Layouts/Queries/Queries";
 import PrivateRoute from "./Authentication/PrivateRoute";
 import AddQuery from "./Layouts/AddQuery";
 import MyQuery from "./Layouts/MyQuery/MyQuery";
+import QueryDetails from "./Layouts/QueryDetails/QueryDetails";
+import axios from "axios";
+
 
 export const routes = createBrowserRouter([
     {
@@ -29,7 +32,8 @@ element: <SignUp></SignUp>
         },
         {
 path:'/queries',
-element: <Queries></Queries>
+element: <Queries></Queries>,
+loader: () => axios.get(`http://localhost:5000/queries`)
         },
         {
 path:'/addQuery',
@@ -38,6 +42,11 @@ element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
         {
 path:'/myQueries',
 element: <PrivateRoute><MyQuery></MyQuery></PrivateRoute>
+        },
+        {
+path:'/queryDetails/:id',
+element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
+loader: ({params}) => axios.get(`http://localhost:5000/queries/${params.id}`)
         },
 
       ]
