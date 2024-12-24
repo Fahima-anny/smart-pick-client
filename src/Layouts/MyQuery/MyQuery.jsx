@@ -5,10 +5,12 @@ import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Authentication/AuthContext";
 import MyQueryCard from "./MyQueryCard";
+import { toast } from "react-toastify";
 
 
 const MyQuery = () => {
 
+    const [selectedQuery, setSelectedQuery] = useState(null);
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
 
@@ -20,11 +22,38 @@ const MyQuery = () => {
                 setMyQueries(res.data);
             })
             .catch(er => console.log(er));
-    }, [user, axiosSecure])
+    }, [user, axiosSecure, selectedQuery])
+
+    myQueries.sort((a,b)=> Date.parse(b.currentDate) - Date.parse(a.currentDate) )
+   
+    const handleUpdateSubmit = e => {
+        e.preventDefault() ;
+const form = e.target ;
+const productName = form.productName.value ;
+const productBrand = form.productBrand.value ;
+const productImage = form.productImage.value ;
+const queryTitle = form.queryTitle.value ;
+const boycottingReason = form.boycottingReason.value ;
+
+const updatedQuery = {productName, productBrand, productImage, queryTitle, boycottingReason} ;
+
+console.log(updatedQuery);
+
+axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
+.then(res => {
+    console.log(res.data);
+    if(res.data.modifiedCount > 0){
+        toast.success("Your Query has been updated")
+        setSelectedQuery(null);
+    }
+})
+.catch( er => console.log(er))
+
+    }
+    const closeModal = () =>setSelectedQuery(null); 
 
     return (
         <div className="">
-
             <div
                 className="hero min-h-[40vh] rounded-2xl"
                 style={{
@@ -43,7 +72,6 @@ const MyQuery = () => {
                 </div>
             </div>
 
-
             <div className="pt-16">
                 <h1 className=" font-bold text-3xl font-serif text-center pb-3 ">My Queries</h1>
                 <p className="text-gray-500 max-w-3xl text-center mx-auto ">My Queries section helps you track your submitted product queries, view their status, and stay updated on responses efficiently.</p>
@@ -52,7 +80,13 @@ const MyQuery = () => {
                     {
                         myQueries.length > 0
  ? <div  className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 ">
-    { myQueries.map(query => <MyQueryCard key={query._id} query={query}></MyQueryCard>)}
+    { myQueries.map(query => <MyQueryCard
+     myQueries={myQueries}
+      setMyQueries={setMyQueries}
+       key={query._id} 
+       query={query}
+       setSelectedQuery={setSelectedQuery}
+       ></MyQueryCard>)}
  </div>
  : <div className="bg-base-200 w-full p-5 text-center rounded-xl">
     <img className="w-72 mx-auto" src="https://i.ibb.co.com/pXdRSRv/freepik-background-98228.png" alt="" />
@@ -67,6 +101,69 @@ const MyQuery = () => {
  </div>
                     }
                 </div>
+
+      {selectedQuery && (
+                    <dialog id="update_modal" className="modal" open>
+                        <div className="modal-box">
+                            <button
+                                onClick={closeModal}
+                                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                            >
+                                ✕
+                            </button>
+                            <h1 className="font-bold text-3xl font-serif text-center py-3">Update Query</h1>
+                            <form onSubmit={handleUpdateSubmit} className="w-full pt-6 space-y-4">
+                                <div className="form-control">
+
+                <div className="md:grid grid-cols-2 gap-5">
+                <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Product Name</span>
+                </label>
+                <input type="text" name='productName' defaultValue={selectedQuery?.productName} className="input input-bordered" required />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Product Brand</span>
+                </label>
+                <input type="text" name='productBrand' defaultValue={selectedQuery?.productBrand} className="input input-bordered" required />
+              </div>
+                </div>
+
+                <div className="md:grid grid-cols-2 gap-5">
+                <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Product Image URL</span>
+                </label>
+                <input type="text" name='productImage' defaultValue={selectedQuery?.productImage} className="input input-bordered" required />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Query Title</span>
+                </label>
+                <input type="text" name='queryTitle' defaultValue={selectedQuery?.queryTitle} className="input input-bordered" required />
+              </div>
+                </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Boycotting Reason Details</span>
+                </label>
+                <textarea name='boycottingReason' defaultValue={selectedQuery?.boycottingReason} className="textarea textarea-bordered" required />
+              </div>
+              <div className="form-control mt-6">
+              </div>
+
+
+                                </div>
+
+                                <div className="form-control mt-6">
+                                    <input  className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 flex justify-center gap-3 items-center" type="submit" value="Update Query" />
+                                </div>
+                            </form>
+                        </div>
+                    </dialog>
+                )}
 
             </div>
         </div>
