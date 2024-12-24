@@ -50,14 +50,16 @@ const { productName, productBrand, productImage, queryTitle, boycottingReason, u
                </h3>
 
           <h3 className="lg:grid grid-cols-3 gap-2 border-b pb-3 pt-1 font-semibold">
-               <span className="col-span-1 text-gray-500">Query time : </span> 
+               <span className="col-span-1 text-gray-500">Created at : </span> 
                <span className="col-span-2 ">{currentDate}</span>
                </h3>
           </div>
        </div>
    </div>
 
-<RecommendSection></RecommendSection>
+<RecommendSection
+query={query}
+></RecommendSection>
 
      </div>
     );
