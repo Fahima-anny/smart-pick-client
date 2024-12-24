@@ -33,11 +33,11 @@ const { productName, productBrand, productImage, queryTitle, boycottingReason, u
         </div>
           <div className="flex flex-col justify-center gap-2 pt-3">
          
-          <h3 className="font-bold text-2xl">{queryTitle} !!!</h3>
+          <h3 className="font-bold text-2xl text-blue-500">{queryTitle} !!!</h3>
 
           <h3 className="lg:grid grid-cols-3 gap-2 border-b pb-3 pt-1 font-semibold">
                <span className="col-span-1 text-gray-500">Product Name : </span> 
-               <span className="col-span-2 text-blue-500 ">{productName}</span>
+               <span className="col-span-2  ">{productName}</span>
                </h3>
           <h3 className="lg:grid grid-cols-3 gap-2 border-b pb-3 pt-1 font-semibold">
                <span className="col-span-1 text-gray-500">Brand : </span> 
