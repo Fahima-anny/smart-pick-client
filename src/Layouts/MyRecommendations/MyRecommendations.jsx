@@ -30,10 +30,9 @@ axiosSecure.get(`/recommendations?email=${user.email}`)
         <th>
         
         </th>
-        <th>Query Detaiils</th>
+        <th>Query Details</th>
         <th>My Recommend</th>
         <th>Query Author</th>
-        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -41,6 +40,8 @@ axiosSecure.get(`/recommendations?email=${user.email}`)
 {
     myRecommendations.map((myRecommend, idx) => <MyRecommendCard 
     key={myRecommend._id}
+    setMyRecommendations={setMyRecommendations}
+    myRecommendations={myRecommendations}
     idx={idx}
     myRecommend={myRecommend}
     ></MyRecommendCard>)

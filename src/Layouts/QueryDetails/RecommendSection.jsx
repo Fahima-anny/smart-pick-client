@@ -63,10 +63,10 @@ axiosSecure.post("/recommendations", recomData)
             recommends.length > 0 
             ? <div className="space-y-3">
               {
-                recommends.map(recommend => <RecommendCard 
+                recommends.map((recommend, idx) => <RecommendCard 
                   setRecommends={setRecommends}
                   recommends={recommends}
-                key={recommend._id}
+                key={idx}
                 recommend={recommend}
                 ></RecommendCard>)
               }
