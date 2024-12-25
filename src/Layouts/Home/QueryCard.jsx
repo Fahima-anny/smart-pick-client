@@ -4,13 +4,21 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
-const QueryCard = ({query}) => {
+const QueryCard = ({query, layout}) => {
     const {_id, productName, productBrand, productImage, queryTitle, boycottingReason, userEmail, userName, userPhoto, recommendationCount, currentDate} = query ;
     return (
         <div className="card hover:shadow-lg bg-base-100 border rounded-xl duration-500">
         <figure>
           <img
-          className="h-[40vh] w-full rounded-t-xl object-cover object-center hover:scale-110 duration-500"
+          className={`
+            ${
+              layout === "layout1"
+              ? "object-contain h-[40vh]"
+              : layout === "layout2"
+              ? "object-contain "
+              : "object-cover h-[40vh]"
+            }
+            w-full rounded-t-xl  object-center hover:scale-110 duration-500`}
             src={productImage}
             alt={productName} />
         </figure>

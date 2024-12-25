@@ -3,6 +3,7 @@ import {  FaUnlockKeyhole, FaUserLock } from "react-icons/fa6";
 import { LuLogIn } from "react-icons/lu";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthContext";
+import logo from "../../public/smart.png"
 
 
 const Navbar = () => {
@@ -48,7 +49,7 @@ const handleLogout = () => {
     <img src={userPhoto} />
   </div>
 </div> 
-<span  className="text-base-content">Welcome</span><span>{userName} !!</span>
+<span className="text-base-content hidden md:block">Welcome</span><span>{userName} !!</span>
 </div>
   </>
   : <>  <div className="text-xl font-semibold flex items-center gap-2">Login to explore more</div> </>
@@ -155,7 +156,7 @@ const handleLogout = () => {
               {links}
             </ul>
           </div>
-          <a className="font-bold text-4xl font-serif">Smart<span className="text-blue-400">Pick</span></a>
+          <a className="font-bold text-4xl font-serif flex items-center"><img src={logo} className="w-[35px] h-[35px] mr-1"></img>Smart<span className="text-blue-400">Pick</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3 ">
