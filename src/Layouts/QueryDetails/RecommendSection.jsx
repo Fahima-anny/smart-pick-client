@@ -44,7 +44,8 @@ axiosSecure.post("/recommendations", recomData)
 .then(res => {
   console.log(res.data);
   if(res.data.insertedId){
-    toast.success("Recommendation Added")
+    toast.success("Recommendation Added") ;
+    setRecommends([...recommends, recomData])
     e.target.reset() ;
   }
 })
@@ -63,6 +64,8 @@ axiosSecure.post("/recommendations", recomData)
             ? <div className="space-y-3">
               {
                 recommends.map(recommend => <RecommendCard 
+                  setRecommends={setRecommends}
+                  recommends={recommends}
                 key={recommend._id}
                 recommend={recommend}
                 ></RecommendCard>)

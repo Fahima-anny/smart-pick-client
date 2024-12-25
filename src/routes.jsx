@@ -10,6 +10,8 @@ import AddQuery from "./Layouts/AddQuery";
 import MyQuery from "./Layouts/MyQuery/MyQuery";
 import QueryDetails from "./Layouts/QueryDetails/QueryDetails";
 import axios from "axios";
+import MyRecommendations from "./Layouts/MyRecommendations/MyRecommendations";
+import RecommendsForMe from "./Layouts/RecommendsForMe/RecommendsForMe";
 
 
 export const routes = createBrowserRouter([
@@ -42,6 +44,14 @@ element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
         {
 path:'/myQueries',
 element: <PrivateRoute><MyQuery></MyQuery></PrivateRoute>
+        },
+        {
+path:'/myRecommendation',
+element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+        },
+        {
+path:'/recommendationForMe',
+element: <PrivateRoute><RecommendsForMe></RecommendsForMe></PrivateRoute>
         },
         {
 path:'/queryDetails/:id',

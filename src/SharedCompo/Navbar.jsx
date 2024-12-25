@@ -48,7 +48,7 @@ const handleLogout = () => {
     <img src={userPhoto} />
   </div>
 </div> 
-{userName}
+<span  className="text-base-content">Welcome</span><span>{userName} !!</span>
 </div>
   </>
   : <>  <div className="text-xl font-semibold flex items-center gap-2">Login to explore more</div> </>
