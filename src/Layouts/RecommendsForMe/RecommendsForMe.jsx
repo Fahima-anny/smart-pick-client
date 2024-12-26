@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
-import { AuthContext } from "../../Authentication/AuthContext";
+// import { AuthContext } from "../../Authentication/AuthContext";
 import RecommendsForMeCard from "./RecommendsForMeCard";
+import useAuth from "../../Authentication/useAuth";
 
 
 const RecommendsForMe = () => {
@@ -9,12 +10,12 @@ const RecommendsForMe = () => {
   const [load, setLoad] = useState(true) ;
 const [recommendsForMe, setRecommendsForMe] = useState([]) ;
 const axiosSecure = useAxiosSecure() ;
-const {user} = useContext(AuthContext) ;
+const {user} = useAuth() ;
 
 useEffect(() => {
     axiosSecure(`/recommendations?userEmail=${user.email}`)
     .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         setRecommendsForMe(res.data)
         setLoad(false) ;
     })

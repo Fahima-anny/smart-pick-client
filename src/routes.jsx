@@ -14,6 +14,7 @@ import MyRecommendations from "./Layouts/MyRecommendations/MyRecommendations";
 import RecommendsForMe from "./Layouts/RecommendsForMe/RecommendsForMe";
 
 
+
 export const routes = createBrowserRouter([
     {
       path: "/",
@@ -35,7 +36,7 @@ element: <SignUp></SignUp>
         {
 path:'/queries',
 element: <Queries></Queries>,
-loader: () => axios.get(`http://localhost:5000/queries`)
+loader: () => axios.get(`https://smart-pick.vercel.app/queries/only`, {withCredentials: true})
         },
         {
 path:'/addQuery',
@@ -56,7 +57,7 @@ element: <PrivateRoute><RecommendsForMe></RecommendsForMe></PrivateRoute>
         {
 path:'/queryDetails/:id',
 element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-loader: ({params}) => axios.get(`http://localhost:5000/queries/${params.id}`)
+loader: ({params}) => axios.get(`https://smart-pick.vercel.app/queries/${params.id}`, {withCredentials: true})
         },
 
       ]

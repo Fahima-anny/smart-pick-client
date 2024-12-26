@@ -1,13 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Authentication/AuthContext";
+import {  useEffect, useState } from "react";
+// import { AuthContext } from "../../Authentication/AuthContext";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import MyRecommendCard from "./MyRecommendCard";
+import useAuth from "../../Authentication/useAuth";
 
 
 const MyRecommendations = () => {
 
 const [myRecommendations, setMyRecommendations] = useState([]) ;
-const {user} = useContext(AuthContext) ;
+const {user} = useAuth() ;
 const axiosSecure = useAxiosSecure() ;
 
 useEffect(() => {

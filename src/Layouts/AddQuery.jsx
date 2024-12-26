@@ -1,15 +1,16 @@
 
-import { useContext } from "react";
+// import { useContext } from "react";
 import { CgAddR } from "react-icons/cg";
-import { AuthContext } from "../Authentication/AuthContext";
+// import { AuthContext } from "../Authentication/AuthContext";
 import useAxiosSecure from "../Authentication/useAxiosSecure";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../Authentication/useAuth";
 
 
 const AddQuery = () => {
 
-    const {user} = useContext(AuthContext) ;
+    const {user} = useAuth() ;
     const axiosSecure = useAxiosSecure() ;
     const navigate = useNavigate() ;
 
@@ -22,11 +23,11 @@ queryData.userName = user.displayName ;
 queryData.userPhoto = user.photoURL ;
 queryData.recommendationCount = 0 ;
 queryData.currentDate = new Date(Date.now()).toString() ;
-console.log(queryData);
+// console.log(queryData);
 
 axiosSecure.post('/queries', queryData)
 .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     if(res.data.insertedId){
         toast.success("New Query Added")
 e.target.reset() ;

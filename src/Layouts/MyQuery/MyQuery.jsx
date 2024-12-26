@@ -2,16 +2,17 @@
 import { CgAddR } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Authentication/AuthContext";
+import {  useEffect, useState } from "react";
+// import { AuthContext } from "../../Authentication/AuthContext";
 import MyQueryCard from "./MyQueryCard";
 import { toast } from "react-toastify";
+import useAuth from "../../Authentication/useAuth";
 
 
 const MyQuery = () => {
 
     const [selectedQuery, setSelectedQuery] = useState(null);
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
     const [myQueries, setMyQueries] = useState([]);
@@ -37,11 +38,11 @@ const boycottingReason = form.boycottingReason.value ;
 
 const updatedQuery = {productName, productBrand, productImage, queryTitle, boycottingReason} ;
 
-console.log(updatedQuery);
+// console.log(updatedQuery);
 
 axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
 .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     if(res.data.modifiedCount > 0){
         toast.success("Your Query has been updated")
         setSelectedQuery(null);

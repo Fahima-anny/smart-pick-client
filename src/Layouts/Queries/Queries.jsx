@@ -12,7 +12,7 @@ const [queries, setQueries] = useState([]) ;
 const [layout, setLayout] = useState("layout3") ;
 
 const handleChangeLayout = layout => {
-    console.log("change", layout);
+    // console.log("change", layout);
     if(layout === "layout1"){
         setLayout("layout1")
     }
@@ -33,10 +33,10 @@ useEffect(() => {
     const handleSearch = (e) => {
         e.preventDefault() ;
 const searchText = e.target.searchText.value ;
-console.log(searchText);
+// console.log(searchText);
 axiosSecure.get(`/queries?search=${searchText}`)
 .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     setQueries(res.data) ;
 })
 .catch(er => console.log(er))
@@ -83,7 +83,7 @@ axiosSecure.get(`/queries?search=${searchText}`)
             </div>
 
             {
-                queries.length > 0 
+                queries?.length > 0 
                 ? <div className={`grid 
                 ${
                     layout==="layout1" 

@@ -1,18 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
+// import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authentication/AuthContext";
+// import { AuthContext } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
+import useAuth from "../Authentication/useAuth";
 
 
 const Login = () => {
 
-  const {loginUser, googleLogin, setUserPhoto} = useContext(AuthContext) ;
+  const {loginUser, googleLogin, setUserPhoto} = useAuth() ;
   const navigate = useNavigate() ;
   const location = useLocation() ;
-  console.log(location);
+  // console.log(location);
   const destination = location?.state || '/' ;
 
 const handleLogin = e => {
@@ -20,7 +21,7 @@ const handleLogin = e => {
     const form = e.target ;
     const email = form.email.value ;
     const pass = form.pass.value ;
-    console.log(email, pass);
+    // console.log(email, pass);
 
     // login user 
     loginUser(email, pass)

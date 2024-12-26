@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Authentication/AuthContext";
+import {  useEffect, useState } from "react";
+// import { AuthContext } from "../../Authentication/AuthContext";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import { toast } from "react-toastify";
 import RecommendCard from "./RecommendCard";
+import useAuth from "../../Authentication/useAuth";
 
 
 
 const RecommendSection = ({query}) => {
 
-const {user} = useContext(AuthContext) ;
+const {user} = useAuth() ;
   const {_id, productName, queryTitle, userEmail, userName, } = query.data ;
 const axiosSecure = useAxiosSecure() ;
 const [recommends, setRecommends] = useState([]) ;
@@ -18,7 +19,7 @@ const [recommends, setRecommends] = useState([]) ;
 useEffect(() => {
   axiosSecure.get(`/recommendations?id=${_id}`)
   .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     setRecommends(res.data) ;
   })
   .catch(er => console.log(er))
@@ -38,11 +39,11 @@ recomData.recommenderName = user.displayName ;
 recomData.recommenderEmail = user.email ;
 recomData.currentDate = Date.now() ;
 
-  console.log(recomData);
+  // console.log(recomData);
 
 axiosSecure.post("/recommendations", recomData)
 .then(res => {
-  console.log(res.data);
+  // console.log(res.data);
   if(res.data.insertedId){
     toast.success("Recommendation Added") ;
     setRecommends([...recommends, recomData])

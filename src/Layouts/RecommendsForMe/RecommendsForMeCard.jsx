@@ -3,7 +3,7 @@
 
 const RecommendsForMeCard = ({myRecommend, idx}) => {
 
-const {_id, recommendationReason, recommendationTitle, recommendationImage , productName, userName, userEmail, queryTitle, recommenderName, recommenderEmail} = myRecommend ;
+const { recommendationReason, recommendationTitle, recommendationImage , productName, userName, userEmail, queryTitle, recommenderName, recommenderEmail} = myRecommend ;
 
     return (
         <tr className="hover duration-300">

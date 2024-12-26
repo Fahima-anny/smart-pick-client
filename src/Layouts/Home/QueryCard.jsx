@@ -15,7 +15,7 @@ const QueryCard = ({query, layout}) => {
               layout === "layout1"
               ? "object-contain h-[40vh]"
               : layout === "layout2"
-              ? "object-contain "
+              ? "object-contain"
               : "object-cover h-[40vh]"
             }
             w-full rounded-t-xl  object-center hover:scale-110 duration-500`}

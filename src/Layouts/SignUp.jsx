@@ -1,15 +1,16 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdLogin } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authentication/AuthContext";
+// import { AuthContext } from "../Authentication/AuthContext";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useAuth from "../Authentication/useAuth";
 
 
 const SignUp = () => {
 
-    const {signUp,updateUserInfo, setUserPhoto, setUserName, googleLogin} = useContext(AuthContext) ;
+    const {signUp,updateUserInfo, setUserPhoto, setUserName, googleLogin} = useAuth() ;
     const navigate = useNavigate() ;
 
     const handleSignUp = e => {
@@ -19,7 +20,7 @@ const SignUp = () => {
         const pass = form.pass.value ;
         const name = form.name.value ;
         const photo = form.photo.value ;
-        console.log(email, pass, name, photo);
+        // console.log(email, pass, name, photo);
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 if(!regex.test(pass)){
     // toast.error("Your Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 6 characters")
@@ -34,10 +35,10 @@ if(!regex.test(pass)){
         // create user 
         signUp(email, pass)
         .then(res => {
-            console.log(res.user);
+            // console.log(res.user);
             updateUserInfo({displayName: name, photoURL: photo})
             .then(() => {
-                console.log("user info updated");
+                // console.log("user info updated");
                 setUserName(name)
                 setUserPhoto(photo)
                 navigate('/') ;

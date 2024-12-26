@@ -25,7 +25,7 @@ const MyRecommendCard = ({myRecommend, idx, myRecommendations, setMyRecommendati
 
                 axiosSecure.delete(`/recommendations?id=${_id}`)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if(res.data.deletedCount > 0){
                         const remaining = myRecommendations.filter( r => r._id !== _id) ;
                         setMyRecommendations(remaining) ;

@@ -1,14 +1,15 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import {  FaUnlockKeyhole, FaUserLock } from "react-icons/fa6";
 import { LuLogIn } from "react-icons/lu";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authentication/AuthContext";
+// import { AuthContext } from "../Authentication/AuthContext";
 import logo from "../../public/smart.png"
+import useAuth from "../Authentication/useAuth";
 
 
 const Navbar = () => {
   
-  const {user, userName, userPhoto, signOutUser} = useContext(AuthContext) ;
+  const {user, userName, userPhoto, signOutUser} = useAuth() ;
   const navigate = useNavigate() ;
   // console.log(user.photoURL);
   // console.log(userPhoto);
@@ -29,7 +30,7 @@ const links = <>
 const handleLogout = () => {
   signOutUser()
   .then(() => {
-    console.log("user logged out");
+    // console.log("user logged out");
     navigate("/login") ;
   })
   .catch(Er => console.log(Er))

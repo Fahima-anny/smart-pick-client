@@ -11,13 +11,13 @@ const axiosSecure = useAxiosSecure() ;
 const [queries, setQueries] = useState([]) ;
 
 useEffect(() => {
-    axiosSecure.get("/queries?limit=6")
+    axiosSecure.get("/queries/only?limit=6")
     .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         setQueries(res.data);
     })
 } , [axiosSecure])
-console.log(queries);
+// console.log(queries);
     return (
         <div>
             <h1 className="text-center text-4xl font-bold font-serif">Our Queries</h1>
