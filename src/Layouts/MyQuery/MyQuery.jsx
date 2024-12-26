@@ -47,9 +47,6 @@ const queryTitle = form.queryTitle.value ;
 const boycottingReason = form.boycottingReason.value ;
 
 const updatedQuery = {productName, productBrand, productImage, queryTitle, boycottingReason} ;
-
-// console.log(updatedQuery);
-
 axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
 .then(res => {
     // console.log(res.data);

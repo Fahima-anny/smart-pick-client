@@ -9,7 +9,7 @@ useEffect(() => {
   AOS.init({
     duration: 1000,
     once: true,
-    offset: 100
+ 
   });
 }, []);
 
@@ -18,8 +18,8 @@ useEffect(() => {
 
         <motion.div
   data-aos="fade-right"
-        animate={{ y: [null, 40, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
+        animate={{ y: [null, 100, 0] }}
+        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}>
                 <img src="https://i.ibb.co.com/vVc1Hz0/2618596.png" alt="" />
             </motion.div>
 

@@ -11,6 +11,7 @@ const QueriesSection = () => {
 const axiosSecure = useAxiosSecure() ;
 const [queries, setQueries] = useState([]) ;
 
+// queries.sort((a,b)=> Date.parse(b.currentDate) - Date.parse(a.currentDate) )
 
 useEffect(() => {
   AOS.init({
