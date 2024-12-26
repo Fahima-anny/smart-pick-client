@@ -27,7 +27,7 @@ if(error.status === 401 || error.status === 403){
 navigate('/login')
 // toast.error("Please Login Again")
   })
-  .catch(er => console.log(er))
+  .catch(er => console.log("from use axios ",er))
 }
 return Promise.reject(error) ;
   } )
