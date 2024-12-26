@@ -19,10 +19,10 @@
  - react-icons
  - react-toastify
  - sweetalert2
- - swiper etc.
+ - swiper 
  - motion
  - aos animation
- - react-helmet-async
+ - react-helmet-async etc.
 
 #
 # Thank You
