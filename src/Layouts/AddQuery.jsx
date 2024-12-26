@@ -6,6 +6,10 @@ import useAxiosSecure from "../Authentication/useAxiosSecure";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../Authentication/useAuth";
+import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 const AddQuery = () => {
@@ -40,11 +44,22 @@ navigate("/myQueries") ;
 
 }
 
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
+
     return (
 <div className="">
-    <h1 className=" font-bold text-3xl font-serif text-center py-3 ">Add a New Query</h1>
+    <Helmet>
+                  <title>Smart Pick | Add Query</title>
+              </Helmet>
+    <h1 data-aos="fade-up"  className=" font-bold text-3xl font-serif text-center py-3 ">Add a New Query</h1>
     {/* <p className="text-gray-500 max-w-lg text-center mx-auto pb-10">Have a question about a product? Add New Query to get helpful responses!</p> */}
-            <form onSubmit={handleAddQuery} className="w-full pt-6 space-y-4">
+            <form  data-aos="fade-up"  onSubmit={handleAddQuery} className="w-full pt-6 space-y-4">
                 <div className="md:grid grid-cols-2 gap-5">
                 <div className="form-control">
                 <label className="label">

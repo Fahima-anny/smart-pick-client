@@ -20,6 +20,9 @@
  - react-toastify
  - sweetalert2
  - swiper etc.
+ - motion
+ - aos animation
+ - react-helmet-async
 
 #
 # Thank You

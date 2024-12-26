@@ -2,12 +2,23 @@
 /* eslint-disable no-unused-vars */
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const QueryCard = ({query, layout}) => {
+
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
+
     const {_id, productName, productBrand, productImage, queryTitle, boycottingReason, userEmail, userName, userPhoto, recommendationCount, currentDate} = query ;
     return (
-        <div className="card hover:shadow-lg bg-base-100 border rounded-xl duration-500">
+        <div data-aos="fade-up" className="card hover:shadow-lg bg-base-100 border rounded-xl duration-500">
         <figure>
           <img
           className={`

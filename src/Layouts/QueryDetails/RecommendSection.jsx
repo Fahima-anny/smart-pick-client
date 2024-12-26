@@ -6,10 +6,19 @@ import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import { toast } from "react-toastify";
 import RecommendCard from "./RecommendCard";
 import useAuth from "../../Authentication/useAuth";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 const RecommendSection = ({query}) => {
+
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
 
 const {user} = useAuth() ;
   const {_id, productName, queryTitle, userEmail, userName, } = query.data ;
@@ -55,10 +64,11 @@ axiosSecure.post("/recommendations", recomData)
 
     return (
 <div className=" pt-20 pb-10">
-<h1 className="text-3xl font-bold font-serif text-center">Our Recommendations</h1>
-<p className="max-w-3xl mx-auto pt-3 text-center text-gray-500">Discover curated recommendations tailored to your needs, helping you make informed decisions with ease and confidence in every choice</p>
+<h1 data-aos="fade-up"  className="text-3xl font-bold font-serif text-center">Our Recommendations</h1>
+<p data-aos="fade-up"  className="max-w-3xl mx-auto pt-3 text-center text-gray-500">Discover curated recommendations tailored to your needs, helping you make informed decisions with ease and confidence in every choice</p>
         <div className="grid md:grid-cols-2 gap-10 pt-10">
-            <div className=" rounded-2xl">
+
+            <div data-aos="fade-right"  className=" rounded-2xl">
            
           {
             recommends.length > 0 
@@ -78,7 +88,8 @@ axiosSecure.post("/recommendations", recomData)
           }
 
             </div>
-            <div className="space-y-3">
+
+            <div data-aos="fade-left"  className="space-y-3">
                 <h3 className="font-serif font-bold text-2xl text-blue-400">Make a Recommendation</h3>
 
                 <form onSubmit={handleAddRecommendation} className="space-y-3">
@@ -114,6 +125,7 @@ axiosSecure.post("/recommendations", recomData)
 
                 </form>
             </div>
+
         </div>
 </div>
     );

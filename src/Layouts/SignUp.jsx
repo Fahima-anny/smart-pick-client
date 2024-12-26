@@ -6,12 +6,24 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import useAuth from "../Authentication/useAuth";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
 
     const {signUp,updateUserInfo, setUserPhoto, setUserName, googleLogin} = useAuth() ;
     const navigate = useNavigate() ;
+
+
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+}, []);
+
 
     const handleSignUp = e => {
         e.preventDefault() ;
@@ -67,7 +79,10 @@ const handleGoogleLogin = () => {
 
     return (
         <div className="py-16 flex justify-center items-center">
-        <div className="card py-5 bg-base-100 w-full max-w-lg mx-auto shadow-xl shadow-base-300">
+            <Helmet>
+                          <title>Smart Pick | Sign up</title>
+                      </Helmet>
+        <div data-aos="fade-right" className="card py-5 bg-base-100 w-full max-w-lg mx-auto shadow-xl shadow-base-300">
         <a className=" text-center font-bold text-3xl font-serif">Smart<span className="text-blue-400">Pick</span></a>
             <h2 className="text-gray-400 text-center mt-2">Create a new account</h2>
            <form onSubmit={handleSignUp} className="card-body">

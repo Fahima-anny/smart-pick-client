@@ -3,9 +3,19 @@ import {  useEffect, useState } from "react";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import MyRecommendCard from "./MyRecommendCard";
 import useAuth from "../../Authentication/useAuth";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const MyRecommendations = () => {
+
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
 
 const [myRecommendations, setMyRecommendations] = useState([]) ;
 const {user} = useAuth() ;
@@ -22,8 +32,10 @@ axiosSecure.get(`/recommendations?email=${user.email}`)
 
     return (
         <div className="py-10">
-
-            <div className="overflow-x-auto">
+ <Helmet>
+                            <title>Smart Pick | My Recommendations</title>
+                        </Helmet>
+            <div data-aos="fade-up" className="overflow-x-auto">
   <table className="table">
     {/* head */}
     <thead>

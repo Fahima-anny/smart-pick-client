@@ -7,9 +7,19 @@ import {  useEffect, useState } from "react";
 import MyQueryCard from "./MyQueryCard";
 import { toast } from "react-toastify";
 import useAuth from "../../Authentication/useAuth";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const MyQuery = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 2000,
+        once: true,
+        offset: 100, 
+      });
+    }, []);
 
     const [selectedQuery, setSelectedQuery] = useState(null);
     const { user } = useAuth();
@@ -55,7 +65,11 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
 
     return (
         <div className="">
+           <Helmet>
+                                      <title>Smart Pick | My Queries</title>
+                                  </Helmet>
             <div
+             data-aos="fade-up" 
                 className="hero min-h-[40vh] rounded-2xl"
                 style={{
                     backgroundImage: "url(https://i.ibb.co.com/xhkCjMf/2303-w018-n002-1757-B-p15-1757.jpg)",
@@ -74,10 +88,10 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
             </div>
 
             <div className="pt-16">
-                <h1 className=" font-bold text-3xl font-serif text-center pb-3 ">My Queries</h1>
-                <p className="text-gray-500 max-w-3xl text-center mx-auto ">My Queries section helps you track your submitted product queries, view their status, and stay updated on responses efficiently.</p>
+                <h1 data-aos="fade-up"  className=" font-bold text-3xl font-serif text-center pb-3 ">My Queries</h1>
+                <p data-aos="fade-up"  className="text-gray-500 max-w-3xl text-center mx-auto ">My Queries section helps you track your submitted product queries, view their status, and stay updated on responses efficiently.</p>
 
-                <div className="py-10">
+                <div className="py-10" data-aos="fade-up" >
                     {
                         myQueries.length > 0
  ? <div  className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 ">

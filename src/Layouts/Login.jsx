@@ -6,6 +6,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
 import useAuth from "../Authentication/useAuth";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -13,9 +17,7 @@ const Login = () => {
   const {loginUser, googleLogin, setUserPhoto} = useAuth() ;
   const navigate = useNavigate() ;
   const location = useLocation() ;
-  // console.log(location);
   const destination = location?.state || '/' ;
-
 const handleLogin = e => {
     e.preventDefault() ;
     const form = e.target ;
@@ -35,7 +37,6 @@ const handleLogin = e => {
       toast.error("Wrong Email/Password")
     })
 }
-
 const handleGoogleLogin = () => {
   googleLogin()
   .then(res => {
@@ -50,9 +51,19 @@ const handleGoogleLogin = () => {
 })
 }
 
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+}, []);
+
     return (
-           <div className="py-16 flex justify-center items-center">
-        <div className="card py-5 bg-base-100 w-full max-w-md mx-auto shadow-xl shadow-base-300">
+           <div className="py-16 flex justify-center items-center" >
+              <Helmet>
+                            <title>Smart Pick | Login</title>
+                        </Helmet>
+        <div data-aos="fade-left" className="card py-5 bg-base-100 w-full max-w-md mx-auto shadow-xl shadow-base-300">
         <a className=" text-center font-bold text-3xl font-serif">Smart<span className="text-blue-400">Pick</span></a>
             <h2 className="text-gray-400 text-center mt-2">Login with your account</h2>
            <form onSubmit={handleLogin} className="card-body">

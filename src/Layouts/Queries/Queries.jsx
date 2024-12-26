@@ -3,6 +3,10 @@ import QueryCard from "../Home/QueryCard";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import { CgAddR } from "react-icons/cg";
+// import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const Queries = () => {
 
@@ -42,12 +46,23 @@ axiosSecure.get(`/queries?search=${searchText}`)
 .catch(er => console.log(er))
     }
 
+    useEffect(() => {
+      AOS.init({
+        duration: 2000,
+        once: true,
+        offset: 100, 
+      });
+    }, []);
+
     return (
         <div>
+              <Helmet>
+                            <title>Smart Pick | Queries</title>
+                        </Helmet>
             <div className="pt-5 flex flex-col md:flex-row justify-center gap-3 md:justify-between">
-                <h1 className=" font-bold text-3xl font-serif text-center pb-3 ">All Queries</h1>
+                <h1  data-aos="fade-right" className=" font-bold text-3xl font-serif text-center pb-3 ">All Queries</h1>
 
-                <div className="flex gap-2">
+                <div data-aos="fade-right" className="flex gap-2">
                         <button 
                         onClick={() => handleChangeLayout("layout1")}
                          to="/queries" 
@@ -74,7 +89,7 @@ axiosSecure.get(`/queries?search=${searchText}`)
                             }`}>Layout 3</button>
                 </div>
 
-                <form onSubmit={handleSearch} className="flex join join-horizontal mx-auto md:mx-0">
+                <form data-aos="fade-right" onSubmit={handleSearch} className="flex join join-horizontal mx-left md:mx-0">
                         <input type="text" name="searchText" className=" join-item input input-bordered max-w-40 "  placeholder="Search" />
 <input className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 join-item" type="submit" value="Search" />
                 </form >
@@ -101,7 +116,7 @@ axiosSecure.get(`/queries?search=${searchText}`)
                           ></QueryCard>)
                 }
             </div>
-            : <div className="bg-base-200 w-full p-5 text-center rounded-xl mt-5">
+            : <div data-aos="fade-up"  className="bg-base-200 w-full p-5 text-center rounded-xl mt-5">
             <img className="w-72 mx-auto" src="https://i.ibb.co.com/pXdRSRv/freepik-background-98228.png" alt="" />
             <p className="text-3xl font-semibold text-gray-400">No query found !!</p>
             <Link to="/addQuery"> <button className="border font-medium mx-auto my-5 border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-400 duration-500 hover:bg-blue-400 hover:text-white">

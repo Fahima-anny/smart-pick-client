@@ -1,6 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import RecommendSection from "./RecommendSection";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const QueryDetails = () => {
 
@@ -8,22 +11,28 @@ const query = useLoaderData() ;
 const { productName, productBrand, productImage, queryTitle, boycottingReason, userEmail, userName, userPhoto, currentDate} = query.data ;
 // console.log(query.data);
 
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
 
     return (
      <div>
            <div className="md:grid md:grid-cols-2 gap-10 items-center md:justify-between max-w-7xl mx-auto pt-10">
-        {/* <Helmet>
-   <title>Sports Mart | {item}</title>
-   <link rel="canonical" href="https://www.tacobell.com/" />
- </Helmet> */}
+        <Helmet>
+                                   <title>Smart Pick | Query Details</title>
+                               </Helmet>
 
-       <div className="">
+       <div  data-aos="fade-right" >
            <img src={productImage}
                className="w-full border h-full lg:h-[500px] object-cover object-center rounded-2xl "
                alt="" />
        </div>
 
-       <div className="flex flex-col ">
+       <div  data-aos="fade-left"  className="flex flex-col ">
         <div className="flex gap-4 items-center border-b pb-3">
             <img src={userPhoto} className="w-12 h-12 rounded-full" alt="" />
             <div className="">

@@ -1,14 +1,29 @@
 import { motion } from "motion/react"
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const FaqSection = () => {
+
+useEffect(() => {
+  AOS.init({
+    duration: 2000,
+    once: true,
+    offset: 100
+  });
+}, []);
+
     return (
         <div className="grid md:grid-cols-2 gap-10 items-center">
+
         <motion.div
+  data-aos="fade-right"
         animate={{ y: [null, 40, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
                 <img src="https://i.ibb.co.com/vVc1Hz0/2618596.png" alt="" />
             </motion.div>
-            <div>
+
+            <div  data-aos="fade-left"  >
             <h2 className="font-serif font-bold text-3xl pb-6 text-blue-400 pl-3">Frequently Asked Questions </h2>
             <div className="join join-vertical w-full">
   <div className="collapse collapse-arrow join-item border-base-300 border">
