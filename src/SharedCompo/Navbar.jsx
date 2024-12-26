@@ -5,10 +5,20 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../Authentication/AuthContext";
 import logo from "../../public/smart.png"
 import useAuth from "../Authentication/useAuth";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
   
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100, 
+  });
+}, []);
+
   const {user, userName, userPhoto, signOutUser} = useAuth() ;
   const navigate = useNavigate() ;
   // console.log(user.photoURL);
@@ -40,7 +50,8 @@ const handleLogout = () => {
         <>
             <div className="bg-blue-400 text-white ">
 <div className="navbar py-0 max-w-7xl mx-auto">
-        <div className="navbar-start ">
+
+        <div data-aos="fade-right" className="navbar-start ">
 {
   user
   ? <>
@@ -96,7 +107,7 @@ const handleLogout = () => {
                 </div>
           </ul>
         </div> */}
-        <div className="navbar-end gap-5 items-center">
+        <div data-aos="fade-left" className="navbar-end gap-5 items-center">
         <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
   <input type="checkbox" className="theme-controller" value="dark" />
@@ -157,10 +168,10 @@ const handleLogout = () => {
               {links}
             </ul>
           </div>
-          <a className="font-bold text-4xl font-serif flex items-center"><img src={logo} className="w-[35px] h-[35px] mr-1"></img>Smart<span className="text-blue-400">Pick</span></a>
+          <a data-aos="fade-right"  className="font-bold text-4xl font-serif flex items-center"><img src={logo} className="w-[35px] h-[35px] mr-1"></img>Smart<span className="text-blue-400">Pick</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-3 ">
+          <ul data-aos="fade-left" className="menu menu-horizontal px-1 gap-3 ">
             {links}
           </ul>
         </div>

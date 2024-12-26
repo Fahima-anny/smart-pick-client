@@ -15,7 +15,7 @@ const Footer = () => {
   }, []);
 
     return (
-        <div data-aos="fade-down" className="bg-base-200 py-5 md:p-0">
+        <div data-aos="fade-down" className="bg-base-200 py-5 px-3 md:p-0">
             <footer className="md:footer text-base-content p-10 max-w-7xl mx-auto px-0">
   <nav className="flex flex-col justify-center items-center">
     <h6 className="footer-title">Services</h6>
