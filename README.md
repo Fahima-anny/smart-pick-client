@@ -3,6 +3,7 @@
 
 ## 2. Purpose : To Do Recommendations for Various Products
 
+## 2. Server side code : https://github.com/Fahima-anny/smart-pick-server
 ## 3. Live Link : https://smartpick-01.web.app
 
 ## 4. Key Features of The Project :
