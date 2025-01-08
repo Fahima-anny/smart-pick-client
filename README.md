@@ -1,12 +1,12 @@
-## 1. Project Name : Smart Pick
+## Project Name : Smart Pick
  You can have a look of recommendations others has made, for the product query you have made .You can make recommendations on others query , view all recommends you have made and also can delete them if you want
 
-## 2. Purpose : To Do Recommendations for Various Products
+## Purpose : To Do Recommendations for Various Products
 
-## 2. Server side code : https://github.com/Fahima-anny/smart-pick-server
-## 3. Live Link : https://smartpick-01.web.app
+## Server side code : https://github.com/Fahima-anny/smart-pick-server
+## Live Link : https://smartpick-01.web.app
 
-## 4. Key Features of The Project :
+## Key Features of The Project :
  -  This is a fully dynamic website build with react, react-router, axios, tailwind CSS, daisyUI etc.
  - All data of this website are handled with MongoDB .
  - This website is authenticated with firebase authentication system , and its secured with json web token (JWT). So you can see only your data, if you try to break rules you will be logged out .
@@ -15,7 +15,7 @@
  - You can have a look of recommendations others has made, for the product query you have made .
  - You can make recommendations on others query , view all recommends you have made and also can delete them if you want
 
-## 5. NPM Packages used :
+## NPM Packages used :
  - lottie-react
  - react-icons
  - react-toastify
@@ -36,7 +36,7 @@
  - Express JS
  - jwt token
 
- - ## 5. 📦 Dependencies
+ - ## 📦 Dependencies
 The main dependencies used in this project are:
 - **Vite**
 - **React**
@@ -49,7 +49,7 @@ The main dependencies used in this project are:
 - **Firebase**
 - **JWT**
 
-## 6. 💻 How to Run Locally
+## 💻 How to Run Locally
 Follow these steps to set up and run the project on your local machine:
 
  - Clone the repository
