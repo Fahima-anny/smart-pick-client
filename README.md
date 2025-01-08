@@ -24,6 +24,17 @@
  - aos animation
  - react-helmet-async etc.
 
+ - ## 4. Technologies Used :
+ - Vite
+ - React
+ - MongoDB
+ - Firebase
+ - Tailwind
+ - DaisyUI
+ - Node JS
+ - Express JS
+ - jwt token
+
  - ## 5. 📦 Dependencies
 The main dependencies used in this project are:
 - **Vite**
