@@ -12,6 +12,8 @@ import QueryDetails from "./Layouts/QueryDetails/QueryDetails";
 import axios from "axios";
 import MyRecommendations from "./Layouts/MyRecommendations/MyRecommendations";
 import RecommendsForMe from "./Layouts/RecommendsForMe/RecommendsForMe";
+import Contact from "./Layouts/Contact/Contact";
+import About from "./Layouts/About/About";
 
 
 
@@ -28,6 +30,14 @@ element: <Home></Home>
         {
 path:'/login',
 element: <Login></Login>
+        },
+        {
+path:'/contact',
+element: <Contact></Contact>
+        },
+        {
+path:'/about',
+element: <About></About>
         },
         {
 path:'/signUp',

@@ -4,7 +4,7 @@
 
 
 .menu li > *:not(ul, .menu-title, details, .btn):active, .menu li > *:not(ul, .menu-title, details, .btn).active, .menu li > details > summary:active  {
-    color: #60A5FA;
+    color: #4e9cfb;
     background: none;
     text-decoration: underline;
     padding-right: 0;

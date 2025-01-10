@@ -97,7 +97,7 @@ useEffect(() => {
                 <textarea name='boycottingReason' placeholder="Boycotting Reason Details" className="textarea textarea-bordered" required />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 flex justify-center gap-3 items-center ">
+                <button className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 flex justify-center gap-3 items-center ">
                 Add Query <CgAddR className="text-xl" /></button>
               </div>
             </form>

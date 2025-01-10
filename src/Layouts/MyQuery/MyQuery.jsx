@@ -78,7 +78,7 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
                         <p className="mb-5">
                             The Add a New Query section allows users to submit their product-related concerns, ensuring quick resolutions and improving overall satisfaction.
                         </p>
-                        <Link to="/addQuery"> <button className=" text-white hover:text-blue-400 border py-3 px-5  rounded-xl hover:bg-white duration-500 flex justify-center gap-3 items-center ">
+                        <Link to="/addQuery"> <button className=" text-white hover:text-blue-500 border py-3 px-5  rounded-xl hover:bg-white duration-500 flex justify-center gap-3 items-center ">
                             Add Query <CgAddR className="text-xl" /></button></Link>
                     </div>
                 </div>
@@ -103,11 +103,11 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
  : <div className="bg-base-200 w-full p-5 text-center rounded-xl">
     <img className="w-72 mx-auto" src="https://i.ibb.co.com/pXdRSRv/freepik-background-98228.png" alt="" />
     <p className="text-3xl font-semibold text-gray-400">You hav'nt added any query yet!!</p>
-    <Link to="/addQuery"> <button className="border font-medium mx-auto my-5 border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-400 duration-500 hover:bg-blue-400 hover:text-white">
+    <Link to="/addQuery"> <button className="border font-medium mx-auto my-5 border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-500 duration-500 hover:bg-blue-500 hover:text-white">
     Add Query <CgAddR className="text-xl" /></button></Link>
 
 {/* <div className="flex justify-center">
-             <Link to="/queries" className="border border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-400 duration-500 hover:bg-blue-400 hover:text-white">View All Queries<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
+             <Link to="/queries" className="border border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-500 duration-500 hover:bg-blue-500 hover:text-white">View All Queries<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
              </div> */}
 
  </div>
@@ -170,7 +170,7 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <input  className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 flex justify-center gap-3 items-center" type="submit" value="Update Query" />
+                                    <input  className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 flex justify-center gap-3 items-center" type="submit" value="Update Query" />
                                 </div>
                             </form>
                         </div>

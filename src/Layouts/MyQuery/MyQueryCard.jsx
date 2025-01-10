@@ -65,7 +65,7 @@ const handleUpdateBtn = () => {
                     alt={productName} />
             </figure>
             <div className="card-body">
-                <h2 className="card-title font-bold text-blue-400">{queryTitle}</h2>
+                <h2 className="card-title font-bold text-blue-500">{queryTitle}</h2>
                 <div className="flex justify-between">
                     <h3 className="font-semibold">{productName}</h3>
                     <h3 className="font-semibold"><span className=" text-gray-500">Brand : </span>{productBrand}</h3>

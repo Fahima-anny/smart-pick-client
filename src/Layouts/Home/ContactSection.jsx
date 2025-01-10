@@ -4,8 +4,54 @@ import { MdEmail } from "react-icons/md";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const ContactSection = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    console.log(email, message);
+
+    emailjs
+        .send(
+            "service_cpq7311", // Replace with your EmailJS service ID
+            "template_tjal17m", // Replace with your EmailJS template ID
+            {
+                name: name, // Matches {{name}} in your template
+                email: email, // Matches {{email}} in your template
+                message: message, // Matches {{message}} in your template
+            },
+            "So5gNmJiB96adK6Wa" // Replace with your EmailJS public key
+        )
+        .then(
+            (response) => {
+                console.log("SUCCESS!", response.status, response.text);
+                // alert("Message sent successfully!");
+                Swal.fire({
+                    icon: "success",
+                    title: "Message Sent",
+                    // text: "I have got your message & will reply you soon",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset(); // Clear the form after submission
+            },
+            (error) => {
+                console.error("FAILED...", error);
+                // alert("Message failed to send. Please try again.");
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Try again",
+                });
+            }
+        );
+
+}
     
     useEffect(() => {
       AOS.init({
@@ -23,7 +69,7 @@ const ContactSection = () => {
                 <input type="text" placeholder="Your Name" className="input input-bordered w-full" name="" id="" />
                 <input type="email" placeholder="Your Email" className="input input-bordered w-full" name="" id="" />
                 <textarea name="" placeholder="Write Your Message" className="textarea textarea-bordered w-full" id=""></textarea>
-                <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 flex justify-center gap-3 items-center"> <BiMailSend className="text-2xl" /> Send Message</button>
+                <button className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 flex justify-center gap-3 items-center"> <BiMailSend className="text-2xl" /> Send Message</button>
             </div>
 
             <div  data-aos="fade-left" className="space-y-3">

@@ -38,7 +38,7 @@ const Footer = () => {
     <a className="link link-hover">Cookie policy</a>
   </nav>
   <form  className="flex flex-col justify-center items-center md:my-0 mt-5">
-  <a className="font-bold text-4xl font-serif flex items-center"><img src={logo} className="w-[35px] h-[35px] mr-1"></img>Smart<span className="text-blue-400">Pick</span></a>
+  <a className="font-bold text-4xl font-serif flex items-center"><img src={logo} className="w-[35px] h-[35px] mr-1"></img>Smart<span className="text-blue-500">Pick</span></a>
     {/* <fieldset className="form-control w-80">
       <label className="label">
         <span className="label-text">Write to us</span>
@@ -48,7 +48,7 @@ const Footer = () => {
           type="text"
           placeholder="username@site.com"
           className="input input-bordered join-item" />
-        <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 join-item">Subscribe</button>
+        <button className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 join-item">Subscribe</button>
       </div>
     </fieldset> */}
     <p className="max-w-sm leading-7 md:my-0 my-2 ">Discover, review, and buy products you trust with honest community insights.</p>

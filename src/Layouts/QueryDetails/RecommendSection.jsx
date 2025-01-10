@@ -90,7 +90,7 @@ axiosSecure.post("/recommendations", recomData)
             </div>
 
             <div data-aos="fade-left"  className="space-y-3">
-                <h3 className="font-serif font-bold text-2xl text-blue-400">Make a Recommendation</h3>
+                <h3 className="font-serif font-bold text-2xl text-blue-500">Make a Recommendation</h3>
 
                 <form onSubmit={handleAddRecommendation} className="space-y-3">
                     <div className="form-control">
@@ -121,7 +121,7 @@ axiosSecure.post("/recommendations", recomData)
           <textarea type="text" name="recommendationReason" className="textarea textarea-bordered" required />
         </div>
 
-<input type="submit" value="Add Recommendation" className="btn w-full bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 flex justify-center gap-3 items-center" />
+<input type="submit" value="Add Recommendation" className="btn w-full bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 flex justify-center gap-3 items-center" />
 
                 </form>
             </div>

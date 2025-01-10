@@ -83,7 +83,7 @@ const handleGoogleLogin = () => {
                           <title>Smart Pick | Sign up</title>
                       </Helmet>
         <div data-aos="fade-right" className="card py-5 bg-base-100 w-full max-w-lg mx-auto shadow-xl shadow-base-300">
-        <a className=" text-center font-bold text-3xl font-serif">Smart<span className="text-blue-400">Pick</span></a>
+        <a className=" text-center font-bold text-3xl font-serif">Smart<span className="text-blue-500">Pick</span></a>
             <h2 className="text-gray-400 text-center mt-2">Create a new account</h2>
            <form onSubmit={handleSignUp} className="card-body">
         <div className="form-control">
@@ -111,11 +111,11 @@ const handleGoogleLogin = () => {
           <input type="password" placeholder="password" name="pass" className="input input-bordered" required />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 "><MdLogin className="text-2xl" />Sign Up</button>
+          <button className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 "><MdLogin className="text-2xl" />Sign Up</button>
           <div className="divider">or</div>
           <button onClick={handleGoogleLogin} className="btn btn-outline duration-500"><FcGoogle className="text-2xl" />Login with Google</button>
         </div>
-        <p className="text-center">Already have an account? <Link to='/login' className="text-blue-400 font-bold underline hover:text-black duration-500">Login</Link></p>
+        <p className="text-center">Already have an account? <Link to='/login' className="text-blue-500 font-bold underline hover:text-black duration-500">Login</Link></p>
       </form>
            </div>
         </div>

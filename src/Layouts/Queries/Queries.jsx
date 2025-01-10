@@ -68,30 +68,30 @@ axiosSecure.get(`/queries?search=${searchText}`)
                          to="/queries" 
                          className={`border border-blue-400 rounded-lg px-3 flex items-center gap-1 duration-500 
                              ${layout==="layout1" 
-                                ? "bg-blue-400 text-white"
-                                : "text-blue-400"
+                                ? "bg-blue-500 text-white"
+                                : "text-blue-500"
                              }`}>Layout 1</button>
                         <button 
                          onClick={() => handleChangeLayout("layout2")}
                         to="/queries" 
                         className={`border border-blue-400 rounded-lg px-3 flex items-center gap-1 duration-500 
                             ${layout==="layout2" 
-                               ? "bg-blue-400 text-white"
-                               : "text-blue-400"
+                               ? "bg-blue-500 text-white"
+                               : "text-blue-500"
                             }`}>Layout 2</button>
                         <button
                          onClick={() => handleChangeLayout("layout3")}
                         to="/queries" 
                         className={`border border-blue-400 rounded-lg px-3 flex items-center gap-1 duration-500 
                             ${layout==="layout3" 
-                               ? "bg-blue-400 text-white"
-                               : "text-blue-400"
+                               ? "bg-blue-500 text-white"
+                               : "text-blue-500"
                             }`}>Layout 3</button>
                 </div>
 
                 <form data-aos="fade-right" onSubmit={handleSearch} className="flex join join-horizontal mx-left md:mx-0">
                         <input type="text" name="searchText" className=" join-item input input-bordered max-w-40 "  placeholder="Search" />
-<input className="btn bg-blue-400 text-white hover:text-black hover:bg-blue-400 duration-500 join-item" type="submit" value="Search" />
+<input className="btn bg-blue-500 text-white hover:text-black hover:bg-blue-500 duration-500 join-item" type="submit" value="Search" />
                 </form >
 
                 {/* <p className="text-gray-500 max-w-3xl text-center mx-auto ">Explore all user-submitted queries, featuring detailed concerns and feedback, to gain insights and contribute to resolving product-related issues.</p> */}
@@ -119,7 +119,7 @@ axiosSecure.get(`/queries?search=${searchText}`)
             : <div data-aos="fade-up"  className="bg-base-200 w-full p-5 text-center rounded-xl mt-5">
             <img className="w-72 mx-auto" src="https://i.ibb.co.com/pXdRSRv/freepik-background-98228.png" alt="" />
             <p className="text-3xl font-semibold text-gray-400">No query found !!</p>
-            <Link to="/addQuery"> <button className="border font-medium mx-auto my-5 border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-400 duration-500 hover:bg-blue-400 hover:text-white">
+            <Link to="/addQuery"> <button className="border font-medium mx-auto my-5 border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-500 duration-500 hover:bg-blue-500 hover:text-white">
             Add Query <CgAddR className="text-xl" /></button></Link>
             </div>
             }
