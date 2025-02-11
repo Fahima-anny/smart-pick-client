@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Authentication/useAxiosSecure";
 import {  useEffect, useState } from "react";
 // import { AuthContext } from "../../Authentication/AuthContext";
-import MyQueryCard from "./MyQueryCard";
+// import MyQueryCard from "./MyQueryCard";
 import { toast } from "react-toastify";
 import useAuth from "../../Authentication/useAuth";
 import AOS from "aos";
