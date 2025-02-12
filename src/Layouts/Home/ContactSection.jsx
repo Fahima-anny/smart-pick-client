@@ -60,7 +60,6 @@ else{
     Swal.fire({
         icon: "error",
         title: "Please fill the form",
-
     });
 }
 
