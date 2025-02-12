@@ -37,11 +37,13 @@ const Home = () => {
 
   return (
     <div>
+
       {loadingData ? (
         <div className="flex justify-center items-center h-[70vh] bg-white">
           <ClipLoader color="#3498db" size={50} />
         </div>
       ) : (
+        <div>
         <div className="space-y-5 md:space-y-20">
           <Helmet>
             <title>Smart Pick | Home</title>
@@ -50,9 +52,13 @@ const Home = () => {
             <Banner />
           </div>
           <AboutUs />
-          <QueriesSection />
-          <FaqSection />
-          <ContactSection />
+      
+        </div>
+        <div className="space-y-5 md:space-y-10">
+        <QueriesSection />
+            <FaqSection />
+        </div>
+            <ContactSection />
         </div>
       )}
     </div>

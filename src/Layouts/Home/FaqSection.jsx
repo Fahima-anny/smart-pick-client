@@ -14,7 +14,7 @@ useEffect(() => {
 }, []);
 
     return (
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="faq grid  md:grid-cols-2 gap-10 items-center pb-16">
 
         <motion.div
   data-aos="fade-right"
@@ -24,7 +24,7 @@ useEffect(() => {
             </motion.div>
 
             <div  data-aos="fade-left"  >
-            <h2 className="font-serif font-bold text-3xl pb-6 text-blue-500 pl-3">Frequently Asked Questions </h2>
+            <h2 className="font-serif font-bold text-3xl pb-6 text-blue-500 pl-3 my-0 py-0">Frequently Asked Questions </h2>
             <div className="join join-vertical w-full">
   <div className="collapse collapse-arrow join-item border-base-300 border">
     <input type="radio" name="my-accordion-4" defaultChecked />
