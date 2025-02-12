@@ -17,20 +17,22 @@ const ContactSection = () => {
     const message = form.message.value;
     console.log(email, message);
 
+if(name && email && message){
     emailjs
-        .send(
-            "service_cpq7311", // Replace with your EmailJS service ID
-            "template_tjal17m", // Replace with your EmailJS template ID
-            {
-                name: name, // Matches {{name}} in your template
-                email: email, // Matches {{email}} in your template
-                message: message, // Matches {{message}} in your template
-            },
-            "So5gNmJiB96adK6Wa" // Replace with your EmailJS public key
-        )
-        .then(
-            (response) => {
-                console.log("SUCCESS!", response.status, response.text);
+    .send(
+        "service_cpq7311", // Replace with your EmailJS service ID
+        "template_tjal17m", // Replace with your EmailJS template ID
+        {
+            name: name, // Matches {{name}} in your template
+            email: email, // Matches {{email}} in your template
+            message: message, // Matches {{message}} in your template
+        },
+        "So5gNmJiB96adK6Wa" // Replace with your EmailJS public key
+    )
+    .then(
+        (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+    if(response.status){
                 // alert("Message sent successfully!");
                 Swal.fire({
                     icon: "success",
@@ -40,17 +42,29 @@ const ContactSection = () => {
                     timer: 1500
                 });
                 form.reset(); // Clear the form after submission
-            },
-            (error) => {
-                console.error("FAILED...", error);
-                // alert("Message failed to send. Please try again.");
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong! Try again",
-                });
-            }
-        );
+    }
+        },
+        (error) => {
+            console.error("FAILED...", error);
+            // alert("Message failed to send. Please try again.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong! Try again",
+            });
+        }
+    );
+}
+
+else{
+    Swal.fire({
+        icon: "error",
+        title: "Please fill the form",
+
+    });
+}
+
+    
 
 }
     

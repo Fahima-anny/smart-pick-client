@@ -51,7 +51,7 @@ const handleLogout = () => {
     return (
         <>
             <div className="bg-blue-500 text-white ">
-<div className="navbar py-0 max-w-7xl mx-auto">
+<div className="navbar p-0 max-w-7xl mx-auto">
 
         <div data-aos="fade-right" className="navbar-start ">
 {
