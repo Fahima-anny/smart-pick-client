@@ -19,7 +19,7 @@ useEffect(() => {
     const {_id, productName, productBrand, productImage, queryTitle, boycottingReason, userEmail, userName, userPhoto, recommendationCount, currentDate} = query ;
     return (
         <div data-aos="fade-up" className="card rounded-xl duration-500">
-        <figure>
+        <figure className=" border border-b-0">
           <img
           className={`
             ${
@@ -29,7 +29,7 @@ useEffect(() => {
               ? "object-contain"
               : "object-cover h-[40vh]"
             }
-            w-full rounded-t-xl  object-center hover:scale-110 duration-500`}
+            w-full rounded-t-xl border object-center hover:scale-110 duration-500`}
             src={productImage}
             alt={productName} />
         </figure>

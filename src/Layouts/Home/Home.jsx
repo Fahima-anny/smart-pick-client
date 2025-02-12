@@ -54,7 +54,7 @@ const Home = () => {
           <AboutUs />
       
         </div>
-        <div className="space-y-5 md:space-y-10 mt-20">
+        <div className="space-y-5 md:space-y-8 mt-20">
         <QueriesSection />
             <FaqSection />
         </div>
