@@ -93,7 +93,7 @@ const Footer = () => {
 </footer>
 <div className="footer footer-center bg-base-100 py-5 font-semibold px-3">
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by SMARTPICK</p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by <span className="text-blue-600">SMARTPICK</span></p>
   </aside>
 </div>
         </div>
