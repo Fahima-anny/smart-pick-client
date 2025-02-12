@@ -184,7 +184,7 @@ axiosSecure.patch(`/queries/${selectedQuery._id}`, updatedQuery)
     </Link>
     </td>
     <td >
-    <button onClick={() => handleUpdateBtn(query)} className="p-2 text-2xl text-white bg-green-400 hover:bg-green-500 duration-300 rounded-lg"><FaEdit /></button>
+    <button onClick={() => handleUpdateBtn(query)} className="p-2 text-2xl text-white bg-blue-500 hover:bg-blue-600 duration-300 rounded-lg"><FaEdit /></button>
     </td>
     <td >
     <button 

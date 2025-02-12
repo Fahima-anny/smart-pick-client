@@ -39,7 +39,7 @@ queries.map( query => <QueryCard query={query} key={query._id}></QueryCard>)
             }
          </div>
              <div className="flex justify-center">
-             <Link to="/queries" className="border border-blue-400 rounded-lg p-3 flex items-center gap-1 text-blue-500 duration-500 hover:bg-blue-500 hover:text-white">View All Queries<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
+             <Link to="/queries" className="border border-blue-400 rounded-lg p-3 flex items-center gap-1 text-white duration-500 bg-blue-500 hover:text-black font-bold">View All Queries<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
              </div>
         </div>
     );

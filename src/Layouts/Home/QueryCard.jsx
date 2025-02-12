@@ -44,7 +44,7 @@ useEffect(() => {
             <h3 className="font-semibold"><span className=" ">Recommendation Count : </span>{recommendationCount}</h3>
           </div>
           <div className="card-actions">
-            <Link to={`/queryDetails/${_id}`} className="flex font-medium items-center gap-1 duration-500 hover:underline hover:text-blue-500">See More<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
+            <Link to={`/queryDetails/${_id}`} className="flex font-medium items-center gap-1 duration-500 text-blue-500 border px-3 py-2  rounded-md border-blue-500 hover:bg-blue-500 hover:text-white">See More<MdKeyboardDoubleArrowRight className="text-2xl"/></Link>
           </div>
         </div>
       </div>
