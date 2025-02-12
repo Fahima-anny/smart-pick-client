@@ -102,7 +102,7 @@ else{
 <div className="px-3 py-2 bg-base-200 rounded-lg">
 <div className="flex items-center gap-2 text-blue-500">
 <FaPhoneVolume className="text-xl" />
-<h3 className="font-bold pb-1">Phone</h3>
+<h3 className="font-bold pb-1">Phone / Whatsapp</h3>
 </div>
 <p className="text-gray-500">+880-17-09856-551</p>
 </div>
